@@ -47,6 +47,7 @@ func (p *Player) attackPlayer(opponent *Player) {
 
 	fmt.Printf("%s attacks %s! Attack roll: %d, Defense roll: %d\n", p.name, opponent.name, attackRoll, defenseRoll)
 	fmt.Printf("Damage dealt: %d, %s's health reduced to: %d\n", totalDamage, opponent.name, opponent.health)
+	fmt.Println()
 }
 
 func (p *Player) isDead() bool {

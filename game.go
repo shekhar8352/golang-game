@@ -13,6 +13,7 @@ func (g *Game) start() {
 	// It prints a message at the start of the game and a message when the game ends.
 
 	fmt.Println("Starting the game...")
+	fmt.Println()
 
 	// Continue the game loop until one of the players is dead.
 	for !g.player1.isDead() && !g.player2.isDead() {

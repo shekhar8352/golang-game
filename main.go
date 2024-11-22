@@ -22,6 +22,7 @@ func main() {
 	// Display initial player attributes
 	fmt.Printf("Initial stats - %s: health=%d, strength=%d, attack=%d\n", player1.name, player1.health, player1.strength, player1.attack)
 	fmt.Printf("Initial stats - %s: health=%d, strength=%d, attack=%d\n", player2.name, player2.health, player2.strength, player2.attack)
+	fmt.Println()
 
 	// Start the game
 	game := Game{player1: player1, player2: player2}
