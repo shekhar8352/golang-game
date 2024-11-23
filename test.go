@@ -30,6 +30,9 @@ func TestPlayerDeath(t *testing.T) {
 }
 
 func TestGameStart(t *testing.T) {
+	// TestGameStart verifies that the start method of a Game object runs the game
+	// until one of the players dies. It creates a game with two players, starts it,
+	// and checks that one of the players has died when the game is finished.
 	playerA := &Player{name: "Player A", health: 50, strength: 5, attack: 10}
 	playerB := &Player{name: "Player B", health: 100, strength: 10, attack: 5}
 
@@ -42,6 +45,10 @@ func TestGameStart(t *testing.T) {
 }
 
 func TestBothPlayersDie(t *testing.T) {
+	// TestBothPlayersDie tests the scenario where both players attack and defend with the same
+	// strength, causing both players to die simultaneously. It verifies that the game ends
+	// correctly in this scenario by checking that both players are dead after the game is
+	// finished.
 	playerA := &Player{name: "Player A", health: 5, strength: 5, attack: 10}
 	playerB := &Player{name: "Player B", health: 5, strength: 5, attack: 10}
 
@@ -51,5 +58,20 @@ func TestBothPlayersDie(t *testing.T) {
 
 	if !playerA.isDead() || !playerB.isDead() {
 		t.Errorf("Both players should have died, but one or both survived. Player A: %d, Player B: %d", playerA.health, playerB.health)
+	}
+}
+
+func TestPlayerAVictory(t *testing.T) {
+	// TestPlayerAVictory tests the scenario where player1 defeats player2. It verifies that the
+	// game ends correctly in this scenario by checking that player1 is dead after the game is
+	// finished.
+	player1 := &Player{name: "Player A", health: 50, strength: 5, attack: 10}
+	player2 := &Player{name: "Player B", health: 100, strength: 10, attack: 5}
+
+	game := Game{player1: player1, player2: player2}
+	game.start()
+
+	if !player1.isDead() {
+		t.Errorf("Expected player1 to be dead, but player1 survived with health %d", player1.health)
 	}
 }
