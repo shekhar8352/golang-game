@@ -28,3 +28,15 @@ func TestPlayerDeath(t *testing.T) {
 		t.Errorf("Player B should be dead, but is still alive with health %d", playerB.health)
 	}
 }
+
+func TestGameStart(t *testing.T) {
+	playerA := &Player{name: "Player A", health: 50, strength: 5, attack: 10}
+	playerB := &Player{name: "Player B", health: 100, strength: 10, attack: 5}
+
+	game := Game{player1: playerA, player2: playerB}
+	game.start()
+
+	if !playerA.isDead() && !playerB.isDead() {
+		t.Errorf("One player should have died, but both are still alive.")
+	}
+}
