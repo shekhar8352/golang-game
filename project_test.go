@@ -7,7 +7,7 @@ func TestPlayerAttack(t *testing.T) {
 	// It checks that playerB's health is correctly reduced when attacked, ensuring that the attack logic
 	// and damage calculation function as expected.
 	playerA := &Player{name: "Player A", health: 50, strength: 5, attack: 10}
-	playerB := &Player{name: "Player B", health: 100, strength: 10, attack: 5}
+	playerB := &Player{name: "Player B", health: 100, strength: 1, attack: 5}
 
 	playerA.attackPlayer(playerB)
 
